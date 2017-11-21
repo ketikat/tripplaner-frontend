@@ -82,7 +82,7 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
 
-marker('Activity', [-74.009, 40.705]).addTo(map);
+marker('Activity', -74.009, 40.705).addTo(map);
 // const markerDomEl = document.createElement("div");
 // markerDomEl.style.width = "32px";
 // markerDomEl.style.height = "39px";
@@ -683,7 +683,7 @@ const types = {
   Restaurant: 'http://i.imgur.com/cqR6pUI.png'
 }
 
-const markerFactory = (type, coordinates) => {
+const markerFactory = (type, ...coordinates) => {
 
   const markerDomEl = document.createElement("div");
   markerDomEl.style.width = "32px";

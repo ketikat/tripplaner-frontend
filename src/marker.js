@@ -7,7 +7,7 @@ const types = {
   Restaurant: 'http://i.imgur.com/cqR6pUI.png'
 }
 
-const markerFactory = (type, coordinates) => {
+const markerFactory = (type, ...coordinates) => {
 
   const markerDomEl = document.createElement("div");
   markerDomEl.style.width = "32px";
