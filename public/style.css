@@ -5,10 +5,37 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #C1B5AD;
+  background-image: url("http://www.orthopaedie-vegesack.de/assets/images/00156-the-beach-1100-2000x1388-99.jpg");
+ /* opacity: .3;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-color: lightblue;*/
+
 }
 
-#map{
-	height: 100vh;
-	width: 100vh;
+#map {
+	height: 500px;
+	width: 500px;
+	position: relative;
+	left: 25%;
+}
+
+header {
+
+}
+
+.nav-item{
+/*display:;*/
+}
+
+
+#nav {
+display: flex
+height: 100px;
+background-color: orange;
+margin-bottom:50px;
+}
+
+#creators {
+
 }
