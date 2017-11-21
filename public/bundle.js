@@ -71,6 +71,7 @@
 
 // // const mapboxgl = require("./node_modules/mapbox-gl/src");
 const mapboxgl = __webpack_require__(1);
+const marker = __webpack_require__(3);
 
 mapboxgl.accessToken = "pk.eyJ1Ijoia2F0YmFsbG8iLCJhIjoiY2phOXVpYzM0MGt5cTJ3cTkyaXZlOTB1ayJ9.-Yg3Z6jWCdF_2FPSEWkIRQ";
 
@@ -81,11 +82,13 @@ const map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
 
-const markerDomEl = document.createElement("div");
-markerDomEl.style.width = "32px";
-markerDomEl.style.height = "39px";
-markerDomEl.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
-new mapboxgl.Marker(markerDomEl).setLngLat([-74.009, 40.705]).addTo(map);
+marker('Activity', [-74.009, 40.705]).addTo(map);
+// const markerDomEl = document.createElement("div");
+// markerDomEl.style.width = "32px";
+// markerDomEl.style.height = "39px";
+// markerDomEl.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
+// new mapboxgl.Marker(markerDomEl).setLngLat([-74.009, 40.705]).addTo(map);
+
 
 /***/ }),
 /* 1 */
@@ -665,6 +668,31 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapboxgl = __webpack_require__(1);
+
+
+const types = {
+  Activity: 'http://i.imgur.com/WbMOfMl.png',
+  Hotel: 'http://i.imgur.com/D9574Cu.png',
+  Restaurant: 'http://i.imgur.com/cqR6pUI.png'
+}
+
+const markerFactory = (type, coordinates) => {
+
+  const markerDomEl = document.createElement("div");
+  markerDomEl.style.width = "32px";
+  markerDomEl.style.height = "39px";
+  markerDomEl.style.backgroundImage = `url(${types[type]})`;
+  return new mapboxgl.Marker(markerDomEl).setLngLat([coordinates[0], coordinates[1]]);
+};
+
+module.exports = markerFactory;
 
 
 /***/ })
